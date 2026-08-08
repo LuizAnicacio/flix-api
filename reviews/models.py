@@ -8,7 +8,7 @@ class Review(models.Model):
     movie = models.ForeignKey(
         Movie, 
         on_delete=models.PROTECT,
-        related_name='reviws'
+        related_name='reviews'
         )
     stars = models.IntegerField(
         validators=[

@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns= [
 
-    path('movies/', views.MovieCreateListViews.as_view(), name='Movie-create-list'),
-    path('movies/<int:pk>/', views.MovieRetrieveUpdateDestroyView.as_view(), name='Movie-detail-view'),
+    path('movies/', views.MovieCreateListViews.as_view(), name='movie-create-list'),
+    path('movies/<int:pk>/', views.MovieRetrieveUpdateDestroyView.as_view(), name='movie-detail-view'),
 
 ]
