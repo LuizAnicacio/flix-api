@@ -3,7 +3,6 @@ from rest_framework import serializers
 from movies.models import Movie
 
 
-
 class MovieModelSerializer(serializers.ModelSerializer):
     rate = serializers.SerializerMethodField(read_only=True)
 
@@ -11,13 +10,11 @@ class MovieModelSerializer(serializers.ModelSerializer):
         model = Movie
         fields = '__all__'
 
-    #calcular media de nota
     def get_rate(self, obj):
-       rate =  obj.reviews.aggregate(Avg('stars'))['stars__avg']
-
-       if rate:
-           return round(rate, 1)
-       return None
+        rate = obj.reviews.aggregate(Avg('stars'))['stars__avg']
+        if rate:
+            return round(rate, 1)
+        return None
 
     def validate_release_date(self, value):
         if value.year < 1950:
