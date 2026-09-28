@@ -42,7 +42,6 @@ class MovieListDetaislSerializer(serializers.ModelSerializer):
     genre = GenreSerializer()
     rate = serializers.SerializerMethodField(read_only=True)
 
-
     class Meta:
         model = Movie
         fields = ['id', 'title', 'genre', 'actors', 'release_date', 'rate', 'resume']
